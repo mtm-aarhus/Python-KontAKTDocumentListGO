@@ -1,3 +1,16 @@
+"""KontAKT: hent én GO-sags dokumentliste og læg den i KontAKT (KontAKTDocumentListGO).
+
+GENOPLIVET 2026-11 fra sin git-historik (f9261cf i Python-KontAKTDocumentListF2),
+fordi migreringen fra GO til F2 tager længere tid end ventet. KontAKT sender en
+sag hertil, når dens sagsnummer er et GO-nummer (EMN-/GEO-/AKT-…), og til
+KontAKTDocumentListF2, når det er et F2-nummer (cases.KILDE_KOER). Kontrakten
+med KontAKTs import-endpoint er den samme for begge.
+
+OO config:
+    Constant   GOApiURL
+    Credential GOAktApiUser      NTLM user/pwd for GO
+    Credential KontAKTAPI        username = base URL, password = X-API-Key
+"""
 from OpenOrchestrator.orchestrator_connection.connection import OrchestratorConnection
 from OpenOrchestrator.database.queues import QueueElement
 import json
